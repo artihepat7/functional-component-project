@@ -1,0 +1,17 @@
+.ingredientsList {
+  display: flex;
+  flex-direction: column;
+
+  width: 310px;
+  margin: auto;
+}
+
+.ingredientsList li {
+  margin: 5px;
+  list-style: none;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 3px #ccc;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}

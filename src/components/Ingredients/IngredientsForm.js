@@ -1,40 +1,38 @@
 import React, { useState } from "react";
+import LoadingIndicator from "../../UI/LoadingIndicator";
 
-import classes from "./ingredientsForm.module.css";
+import "./ingredientsForm.module.css";
 
-const ingredientsForm = React.memo((props) => {
-  const [inputState, setState] = useState({ title: "", amount: "" });
-  console.log(inputState);
+const IngredientsForm = (props) => {
+  const [input, setInputState] = useState("");
+  const [amount, setAmountState] = useState("");
+  //console.log(input, amount);
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+    props.onAddIngredients({ title: input, amount: amount });
+  };
+
   return (
     <div>
-      <form>
+      <form onSubmit={submitHandler}>
         <label htmlFor="title">Name</label>
         <input
           type="text"
-          value={inputState.title}
-          onChange={(event) =>
-            setState({
-              title: event.target.value,
-              amount: inputState.amount,
-            })
-          }
+          value={input}
+          onChange={(event) => setInputState(event.target.value)}
         />
-
+        {props.isLoading ? <LoadingIndicator /> : null}
         <label htmlFor="amount">Amount</label>
         <input
           type="text"
-          value={inputState.amount}
-          onChange={(event) =>
-            setState({
-              amount: event.target.value,
-              title: inputState.title,
-            })
-          }
+          value={amount}
+          onChange={(event) => setAmountState(event.target.value)}
         />
         <button type="submit">Add Ingredient</button>
       </form>
     </div>
   );
-});
+};
 
-export default ingredientsForm;
+export default IngredientsForm;
