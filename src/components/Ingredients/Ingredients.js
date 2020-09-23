@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import IngredientsForm from "./IngredientsForm";
 import Filter from "./Filter";
 import IngredientsList from "./IngredientsList";
-import ErrorModal from "../../UI/ErrorModal";
+import ErrorModal from "../UI/ErrorModal";
 
 const Ingredients = () => {
   const [userIngredients, setuserIngredients] = useState([]);

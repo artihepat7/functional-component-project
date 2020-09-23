@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import LoadingIndicator from "../../UI/LoadingIndicator";
+import LoadingIndicator from "../UI/LoadingIndicator";
 
 import "./ingredientsForm.module.css";
 
